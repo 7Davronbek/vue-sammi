@@ -1,9 +1,13 @@
 <template>
-  <div class="AppFilter">
+  <div class="AppFilter pb-4">
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <h1>App Filter</h1>
+        <div class="col-lg-10 mx-auto">
+          <div class="d-flex align-items-center">
+            <button class="btn btn-outline-dark me-2">All</button>
+            <button class="btn btn-outline-dark me-2">Popular</button>
+            <button class="btn btn-outline-dark me-2">Recently</button>
+          </div>
         </div>
       </div>
     </div>

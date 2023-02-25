@@ -17,11 +17,19 @@ export default {
 
 <template>
   <div>
-    <AppInfo />
-    <SearchPanel />
-    <AppFilter />
-    <MovieList />
-    <MovieAddForm />
+    <div class="shadow">
+      <AppInfo />
+    </div>
+    <div class="shadow">
+      <SearchPanel />
+      <AppFilter />
+    </div>
+    <div class="shadow">
+      <MovieList />
+    </div>
+    <div class="shadow">
+      <MovieAddForm />
+    </div>
   </div>
 </template>
 

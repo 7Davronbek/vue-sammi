@@ -1,9 +1,10 @@
 <template>
-  <div class="AppInfo">
+  <div class="AppInfo py-4">
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <h1>Hi</h1>
+        <div class="col-lg-10 mx-auto">
+            <h3>All movies: 10</h3>
+            <h4>Favorite movies: 2</h4>
         </div>
       </div>
     </div>

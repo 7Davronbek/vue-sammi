@@ -1,9 +1,9 @@
 <template>
-  <div class="SearchPanel">
+  <div class="SearchPanel py-4">
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <h1>Search Panel</h1>
+        <div class="col-lg-10 mx-auto">
+            <input class="form-control" placeholder="Look for movie..." type="text">
         </div>
       </div>
     </div>
