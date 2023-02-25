@@ -11,6 +11,30 @@ export default {
     AppFilter,
     MovieList,
     MovieAddForm
+  },
+  data() {
+    return {
+      movies: [
+        {
+          name: 'Omar',
+          viewers: 204,
+          like: true,
+          favorite: true
+        },
+        {
+          name: 'Golder',
+          viewers: 463,
+          like: false,
+          favorite: false
+        },
+        {
+          name: "Truman's show",
+          viewers: 998,
+          like: false,
+          favorite: true
+        }
+      ]
+    }
   }
 }
 </script>
@@ -18,14 +42,17 @@ export default {
 <template>
   <div>
     <div class="shadow">
-      <AppInfo />
+      <AppInfo
+        :allMoviesCount="movies.length"
+        :favorite="movies.filter((i) => i.favorite).length"
+      />
     </div>
     <div class="shadow">
       <SearchPanel />
       <AppFilter />
     </div>
     <div class="shadow">
-      <MovieList />
+      <MovieList :movies="movies" />
     </div>
     <div class="shadow">
       <MovieAddForm />

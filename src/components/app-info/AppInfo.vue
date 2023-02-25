@@ -3,8 +3,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 mx-auto">
-            <h3>All movies: 10</h3>
-            <h4>Favorite movies: 2</h4>
+          <h3>All movies: {{ allMoviesCount }}</h3>
+          <h4>Favorite movies: {{ favorite }}</h4>
         </div>
       </div>
     </div>
@@ -12,7 +12,18 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    allMoviesCount: {
+      type: Number,
+      required: true
+    },
+    favorite: {
+      type: Number,
+      required: true
+    }
+  }
+}
 </script>
 
 <style></style>

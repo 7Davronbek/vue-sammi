@@ -5,28 +5,10 @@ export default {
   components: {
     MovieListItem
   },
-  data() {
-    return {
-      movies: [
-        {
-          name: 'Omar',
-          viewers: 204,
-          like: true,
-          favorite: true
-        },
-        {
-          name: 'Golder',
-          viewers: 463,
-          like: false,
-          favorite: false
-        },
-        {
-          name: "Truman's show",
-          viewers: 998,
-          like: false,
-          favorite: true
-        }
-      ]
+  props: {
+    movies: {
+      type: Array,
+      required: true
     }
   }
 }
