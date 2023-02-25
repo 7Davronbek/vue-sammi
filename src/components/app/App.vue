@@ -35,6 +35,12 @@ export default {
         }
       ]
     }
+  },
+
+  methods: {
+    createMovie(item) {
+      this.movies.push(item)
+    }
   }
 }
 </script>
@@ -55,7 +61,7 @@ export default {
       <MovieList :movies="movies" />
     </div>
     <div class="shadow">
-      <MovieAddForm />
+      <MovieAddForm @createMovie="createMovie" />
     </div>
   </div>
 </template>
