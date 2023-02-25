@@ -19,7 +19,7 @@ export default {
     <div class="container">
       <div class="row">
         <div class="col-10 mx-auto">
-          <MovieListItem v-for="movie in movies" :key="movie.name" :movie="movie" />
+          <MovieListItem v-for="movie in movies" :key="movie.id" :movie="movie" />
         </div>
       </div>
     </div>

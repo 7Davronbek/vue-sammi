@@ -16,18 +16,21 @@ export default {
     return {
       movies: [
         {
+          id: 1,
           name: 'Omar',
           viewers: 204,
           like: true,
           favorite: true
         },
         {
+          id: 2,
           name: 'Golder',
           viewers: 463,
           like: false,
           favorite: false
         },
         {
+          id: 3,
           name: "Truman's show",
           viewers: 998,
           like: false,
