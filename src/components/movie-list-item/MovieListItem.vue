@@ -1,16 +1,28 @@
 <template>
   <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-3">
-    <h6>Omar Ibn Hattob</h6>
-    <input type="number" defaultValue="999" class="form-control w-25 mx-4" />
+    <h6 :class="[{ favorite: movie.like }]">{{ movie.name }}</h6>
+    <input
+      type="number"
+      :class="[{ favorite: movie.like }]"
+      :value="movie.viewers"
+      class="form-control w-25 mx-4"
+    />
     <div class="icon">
-      <i class="fa fa-cookie "></i>
+      <i class="fa fa-cookie"></i>
       <i class="fa fa-trash mx-2"></i>
-      <i class="fa fa-star"></i>
+      <i class="fa fa-star" :class="[{ favorite: movie.favorite }]"></i>
     </div>
   </div>
 </template>
 <script>
-export default {}
+export default {
+  props: {
+    movie: {
+      type: Object,
+      required: true
+    }
+  }
+}
 </script>
 <style>
 .fa {
@@ -23,11 +35,20 @@ export default {}
   color: rgb(203, 75, 28);
 }
 .fa-star {
-    color: #fff700;
+  color: #fff700;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
 }
 
-h6.favorite {
-    color: #fff700;
+.fa-star.favorite {
+  opacity: 1;
+  visibility: visible;
 }
 
+h6.favorite,
+input.favorite {
+  color: #fff700;
+  border-color: #fff700;
+}
 </style>
