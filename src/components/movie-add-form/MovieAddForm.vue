@@ -6,7 +6,7 @@
           <h5>Create a movie</h5>
           <form class="d-flex align-items-center">
             <input placeholder="Name of movie" type="text" class="form-control" />
-            <input placeholder="How many times have seen" type="text" class="form-control" />
+            <input placeholder="How many times have seen" type="number" class="form-control" />
             <button class="btn btn-outline-dark">Create</button>
           </form>
         </div>
