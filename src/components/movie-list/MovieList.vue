@@ -19,7 +19,12 @@ export default {
     <div class="container">
       <div class="row">
         <div class="col-10 mx-auto">
-          <MovieListItem v-for="movie in movies" :key="movie.id" :movie="movie" />
+          <MovieListItem
+            v-for="movie in movies"
+            :key="movie.id"
+            :movie="movie"
+            @onLike="$emit('onLike', movie.id)"
+          />
         </div>
       </div>
     </div>

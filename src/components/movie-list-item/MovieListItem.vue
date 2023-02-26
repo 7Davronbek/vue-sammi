@@ -1,16 +1,16 @@
 <template>
   <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-3">
-    <h6 :class="[{ favorite: movie.like }]">{{ movie.name }}</h6>
+    <h6 style="cursor: pointer;" @click="onLike" :class="[{ favorite: movie.favorite }]">{{ movie.name }}</h6>
     <input
       type="number"
-      :class="[{ favorite: movie.like }]"
+      :class="[{ favorite: movie.favorite }]"
       :value="movie.viewers"
       class="form-control w-25 mx-4"
     />
     <div class="icon">
       <i class="fa fa-cookie"></i>
       <i class="fa fa-trash mx-2"></i>
-      <i class="fa fa-star" :class="[{ favorite: movie.favorite }]"></i>
+      <i class="fa fa-star" :class="[{ favorite: movie.like }]"></i>
     </div>
   </div>
 </template>
@@ -20,6 +20,11 @@ export default {
     movie: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    onLike() {
+      this.$emit('onLike', this.movie.id)
     }
   }
 }

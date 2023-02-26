@@ -43,6 +43,14 @@ export default {
   methods: {
     createMovie(item) {
       this.movies.push(item)
+    },
+    onLikeHandler(id) {
+      this.movies.map((item) => {
+        if (item.id == id) {
+          item.like = !item.like
+        }
+        return item
+      })
     }
   }
 }
@@ -61,7 +69,7 @@ export default {
       <AppFilter />
     </div>
     <div class="shadow">
-      <MovieList :movies="movies" />
+      <MovieList :movies="movies" @onLike="onLikeHandler" />
     </div>
     <div class="shadow">
       <MovieAddForm @createMovie="createMovie" />
