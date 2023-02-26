@@ -36,7 +36,8 @@ export default {
           like: false,
           favorite: true
         }
-      ]
+      ],
+      term: ''
     }
   },
 
@@ -54,6 +55,13 @@ export default {
     },
     onRemoveHandler(id) {
       this.movies = this.movies.filter((item) => item.id !== id)
+    },
+    onSearchHandler(arr, term) {
+      if (term.length === 0) {
+        return arr
+      }
+
+      return arr.filter((item) => item.name.toLowerCase().indexOf(term) > -1)
     }
   }
 }
@@ -73,7 +81,11 @@ export default {
       <AppFilter />
     </div>
     <div class="shadow">
-      <MovieList :movies="movies" @onToogle="onToogleHandler" @onRemove="onRemoveHandler" />
+      <MovieList
+        :movies="onSearchHandler(movies, term)"
+        @onToogle="onToogleHandler"
+        @onRemove="onRemoveHandler"
+      />
     </div>
     <div class="shadow">
       <MovieAddForm @createMovie="createMovie" />
