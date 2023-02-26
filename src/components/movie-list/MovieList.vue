@@ -24,6 +24,7 @@ export default {
             :key="movie.id"
             :movie="movie"
             @onToogle="$emit('onToogle', $event)"
+            @onRemove="$emit('onRemove', $event)"
           />
         </div>
       </div>

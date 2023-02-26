@@ -51,6 +51,9 @@ export default {
         }
         return item
       })
+    },
+    onRemoveHandler(id) {
+      this.movies = this.movies.filter((item) => item.id !== id)
     }
   }
 }
@@ -70,7 +73,7 @@ export default {
       <AppFilter />
     </div>
     <div class="shadow">
-      <MovieList :movies="movies" @onToogle="onToogleHandler" />
+      <MovieList :movies="movies" @onToogle="onToogleHandler" @onRemove="onRemoveHandler" />
     </div>
     <div class="shadow">
       <MovieAddForm @createMovie="createMovie" />

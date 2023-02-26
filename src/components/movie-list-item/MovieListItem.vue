@@ -15,7 +15,7 @@
     />
     <div class="icon">
       <i @click="$emit('onToogle', { id: movie.id, prop: 'favorite' })" class="fa fa-cookie"></i>
-      <i class="fa fa-trash mx-2"></i>
+      <i @click="$emit('onRemove', movie.id)" class="fa fa-trash mx-2"></i>
       <i class="fa fa-star" :class="[{ favorite: movie.like }]"></i>
     </div>
   </div>
