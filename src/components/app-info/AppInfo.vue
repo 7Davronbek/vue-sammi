@@ -3,8 +3,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 mx-auto">
-          <h3>All movies: {{ allMoviesCount }}</h3>
+          <h4>All movies: {{ allMoviesCount }}</h4>
           <h4>Favorite movies: {{ favorite }}</h4>
+          <h4>Liked movies: {{ like }}</h4>
         </div>
       </div>
     </div>
@@ -19,6 +20,10 @@ export default {
       required: true
     },
     favorite: {
+      type: Number,
+      required: true
+    },
+    like: {
       type: Number,
       required: true
     }

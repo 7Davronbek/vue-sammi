@@ -23,7 +23,7 @@ export default {
             v-for="movie in movies"
             :key="movie.id"
             :movie="movie"
-            @onLike="$emit('onLike', movie.id)"
+            @onToogle="$emit('onToogle', $event)"
           />
         </div>
       </div>

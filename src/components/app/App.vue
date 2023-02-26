@@ -44,10 +44,10 @@ export default {
     createMovie(item) {
       this.movies.push(item)
     },
-    onLikeHandler(id) {
-      this.movies.map((item) => {
+    onToogleHandler({ id, prop }) {
+      this.movies = this.movies.map((item) => {
         if (item.id == id) {
-          item.like = !item.like
+          return { ...item, [prop]: !item[prop] }
         }
         return item
       })
@@ -62,6 +62,7 @@ export default {
       <AppInfo
         :allMoviesCount="movies.length"
         :favorite="movies.filter((i) => i.favorite).length"
+        :like="movies.filter((i) => i.like).length"
       />
     </div>
     <div class="shadow">
@@ -69,7 +70,7 @@ export default {
       <AppFilter />
     </div>
     <div class="shadow">
-      <MovieList :movies="movies" @onLike="onLikeHandler" />
+      <MovieList :movies="movies" @onToogle="onToogleHandler" />
     </div>
     <div class="shadow">
       <MovieAddForm @createMovie="createMovie" />
