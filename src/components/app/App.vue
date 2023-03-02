@@ -62,6 +62,10 @@ export default {
       }
 
       return arr.filter((item) => item.name.toLowerCase().indexOf(term) > -1)
+    },
+
+    updateTermHandler(term) {
+      this.term = term
     }
   }
 }
@@ -77,7 +81,7 @@ export default {
       />
     </div>
     <div class="shadow">
-      <SearchPanel />
+      <SearchPanel :updateTermHandler="updateTermHandler" />
       <AppFilter />
     </div>
     <div class="shadow">
