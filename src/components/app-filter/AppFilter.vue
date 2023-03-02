@@ -5,26 +5,15 @@
         <div class="col-lg-10 mx-auto">
           <div class="d-flex align-items-center">
             <button
-              :class="[filterName === 'all' ? 'btn-dark' : 'btn-outline-dark']"
-              @click="fitlerHandler('all')"
+              v-for="btn in filterButtons"
+              :key="btn.name"
               class="btn me-2"
+              :class="[filterName === btn.name ? 'btn-dark' : 'btn-outline-dark']"
+              @click="fitlerHandler(btn.name)"
             >
-              All
+              {{ btn.title }}
             </button>
-            <button
-              :class="[filterName === 'popular' ? 'btn-dark' : 'btn-outline-dark']"
-              @click="fitlerHandler('popular')"
-              class="btn me-2"
-            >
-              Popular
-            </button>
-            <button
-              :class="[filterName === 'mostViewers' ? 'btn-dark' : 'btn-outline-dark']"
-              @click="fitlerHandler('mostViewers')"
-              class="btn me-2"
-            >
-              Most Viewed
-            </button>
+           
           </div>
         </div>
       </div>
@@ -45,7 +34,21 @@ export default {
   },
   data() {
     return {
-      filter: 'all'
+      filter: 'all',
+      filterButtons: [
+        {
+          name: 'all',
+          title: 'All'
+        },
+        {
+          name: 'popular',
+          title: 'Popular'
+        },
+        {
+          name: 'mostViewers',
+          title: 'Most Viewed'
+        }
+      ]
     }
   },
   methods: {
