@@ -37,7 +37,8 @@ export default {
           favorite: true
         }
       ],
-      term: ''
+      term: '',
+      filter: 'all'
     }
   },
 
@@ -66,6 +67,21 @@ export default {
 
     updateTermHandler(term) {
       this.term = term
+    },
+    onFilterHandler(arr, filter) {
+      switch (filter) {
+        case 'popular':
+          return arr.filter((item) => item.like)
+
+        case 'mostViewers':
+          return arr.filter((item) => item.viewers > 500)
+
+        default:
+          return arr
+      }
+    },
+    updateFilterHandler(filter) {
+      this.filter = filter
     }
   }
 }
@@ -82,11 +98,11 @@ export default {
     </div>
     <div class="shadow">
       <SearchPanel :updateTermHandler="updateTermHandler" />
-      <AppFilter />
+      <AppFilter :updateFilterHandler="updateFilterHandler" :filterName="filter" />
     </div>
     <div class="shadow">
       <MovieList
-        :movies="onSearchHandler(movies, term)"
+        :movies="onFilterHandler(onSearchHandler(movies, term), filter)"
         @onToogle="onToogleHandler"
         @onRemove="onRemoveHandler"
       />
