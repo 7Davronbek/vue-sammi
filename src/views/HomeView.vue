@@ -1,7 +1,17 @@
-<script setup>
-import Main from '@/components/main/Main.vue'
+<script>
+import MainVue from '@/components/main/MainVue.vue'
+
+export default {
+  components: { MainVue },
+  props: {
+    movies: {
+      type: Array,
+      required: true
+    }
+  }
+}
 </script>
 
 <template>
-  <Main />
+  <MainVue :movies="movies" />
 </template>

@@ -1,10 +1,9 @@
 <script setup>
 
-import Info from '@/components/main/Info.vue'
 </script>
 
 <template>
-  <Info />
+  <input type="text" placeholder="Find movie" class="form-control">
 </template>
 
 <style scoped>
