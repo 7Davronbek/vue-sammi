@@ -5,7 +5,13 @@ export default {
       type: Object,
       required: true
     }
-  }
+  },
+  methods: {
+    onLiked(id) {
+      this.$emit('onLiked', id)
+    }
+  },
+  emits: ["onLiked"]
 }
 </script>
 
@@ -17,7 +23,7 @@ export default {
     <span>{{ movie.name }}</span>
     <div class="d-flex align-items-center">
       <h6 class="mb-0 mx-3">{{ movie.viewers }}</h6>
-      <button class="btn mx-2">Cookie</button>
+      <button @click="onLiked(movie.id)" class="btn mx-2">Cookie</button>
       <button class="btn mx-2 btn-danger">Trash</button>
       <button class="btn mx-2 btn-warning">Star</button>
     </div>

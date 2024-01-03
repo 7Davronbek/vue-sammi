@@ -9,14 +9,20 @@ export default {
       type: Array,
       required: true
     }
-  }
+  },
+  methods: {
+    onLiked(item) {
+      this.$emit('onLiked', item)
+    }
+  },
+  emits: ['onLiked']
 }
 </script>
 
 <template>
   <h5>Movie list</h5>
   <ul>
-    <SingleMovie v-for="movie in movies" :movie="movie" />
+    <SingleMovie @onLiked="onLiked" :key="movie.id" v-for="movie in movies" :movie="movie" />
   </ul>
 </template>
 

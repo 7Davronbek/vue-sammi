@@ -14,7 +14,16 @@ export default {
       type: Array,
       required: true
     }
-  }
+  },
+  methods: {
+    newMovie(newMovie) {
+      this.$emit('newMovie', newMovie)
+    },
+    onLiked(item) {
+      this.$emit('onLiked', item)
+    }
+  },
+  emits: ['newMovie', "onLiked"]
 }
 </script>
 
@@ -29,9 +38,9 @@ export default {
         <div class="mb-5"></div>
         <AppFilter />
         <div class="mb-5"></div>
-        <MovieList :movies="movies" />
+        <MovieList @onLiked="onLiked" :movies="movies" />
         <div class="mb-5"></div>
-        <MovieAddForm />
+        <MovieAddForm @newMovie="newMovie" />
       </div>
     </div>
   </div>

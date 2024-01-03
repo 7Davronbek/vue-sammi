@@ -8,10 +8,19 @@ export default {
       type: Array,
       required: true
     }
-  }
+  },
+  methods: {
+    newMovie(newMovie) {
+      this.$emit('newMovie', newMovie)
+    },
+    onLiked(item) {
+      this.$emit('onLiked', item)
+    }
+  },
+  emits: ["newMovie", "onLiked"]
 }
 </script>
 
 <template>
-  <MainVue :movies="movies" />
+  <MainVue @newMovie="newMovie" @onLiked="onLiked" :movies="movies" />
 </template>

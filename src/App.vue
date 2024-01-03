@@ -45,13 +45,20 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    newMovie(item) {
+      this.movies.push(item);
+    },
+    onLiked(item) {
+      console.log(item)
+    }
   }
-
 }
 </script>
 
 <template>
-  <HomeView :movies="movies" />
+  <HomeView @onLiked="onLiked" @newMovie="newMovie" :movies="movies" />
 </template>
 
 <style>
