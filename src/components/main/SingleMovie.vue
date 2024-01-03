@@ -11,7 +11,7 @@ export default {
       this.$emit('onLiked', id)
     }
   },
-  emits: ["onLiked"]
+  emits: ['onLiked', "onFavourite", "remove"]
 }
 </script>
 
@@ -20,11 +20,11 @@ export default {
   <li class="d-flex align-items-center justify-content-between border-bottom py-4"
       :class="[{favorite: movie.favorite}, {liked: movie.liked}]"
   >
-    <span>{{ movie.name }}</span>
+    <span @click="onLiked(movie.id)">{{ movie.name }}</span>
     <div class="d-flex align-items-center">
       <h6 class="mb-0 mx-3">{{ movie.viewers }}</h6>
-      <button @click="onLiked(movie.id)" class="btn mx-2">Cookie</button>
-      <button class="btn mx-2 btn-danger">Trash</button>
+      <button @click="$emit('onFavourite', movie.id)" class="btn mx-2">Cookie</button>
+      <button @click="$emit('remove', movie.id)" class="btn mx-2 btn-danger">Trash</button>
       <button class="btn mx-2 btn-warning">Star</button>
     </div>
   </li>

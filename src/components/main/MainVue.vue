@@ -21,9 +21,15 @@ export default {
     },
     onLiked(item) {
       this.$emit('onLiked', item)
+    },
+    onFavourite(item) {
+      this.$emit('onFavourite', item)
+    },
+    remove(item) {
+      this.$emit('remove', item)
     }
   },
-  emits: ['newMovie', "onLiked"]
+  emits: ['newMovie', 'onLiked', 'onFavourite', 'remove']
 }
 </script>
 
@@ -32,13 +38,13 @@ export default {
     <div class="row">
       <div class="col-12">
         <div class="mb-5"></div>
-        <Info :favoriteCount="movies.filter(m => m.favorite).length" :moviesCount="movies.length" />
+        <Info :likedCount="movies.filter(m => m.liked).length" :favoriteCount="movies.filter(m => m.favorite).length" :moviesCount="movies.length" />
         <div class="mb-5"></div>
         <SearchPanel />
         <div class="mb-5"></div>
         <AppFilter />
         <div class="mb-5"></div>
-        <MovieList @onLiked="onLiked" :movies="movies" />
+        <MovieList @remove="remove" @onFavourite="onFavourite" @onLiked="onLiked" :movies="movies" />
         <div class="mb-5"></div>
         <MovieAddForm @newMovie="newMovie" />
       </div>

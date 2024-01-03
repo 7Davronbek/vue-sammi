@@ -15,12 +15,18 @@ export default {
     },
     onLiked(item) {
       this.$emit('onLiked', item)
+    },
+    onFavourite(item) {
+      this.$emit("onFavourite", item)
+    },
+    remove(item) {
+      this.$emit('remove', item)
     }
   },
-  emits: ["newMovie", "onLiked"]
+  emits: ['newMovie', 'onLiked', 'onFavourite', "remove"]
 }
 </script>
 
 <template>
-  <MainVue @newMovie="newMovie" @onLiked="onLiked" :movies="movies" />
+  <MainVue @remove="remove" @onFavourite="onFavourite" @newMovie="newMovie" @onLiked="onLiked" :movies="movies" />
 </template>

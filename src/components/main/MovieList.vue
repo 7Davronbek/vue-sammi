@@ -13,16 +13,23 @@ export default {
   methods: {
     onLiked(item) {
       this.$emit('onLiked', item)
+    },
+    onFavourite(item) {
+      this.$emit('onFavourite', item)
+    },
+    remove(item) {
+      this.$emit('remove', item)
     }
   },
-  emits: ['onLiked']
+  emits: ['onLiked', 'onFavourite', 'remove']
 }
 </script>
 
 <template>
   <h5>Movie list</h5>
   <ul>
-    <SingleMovie @onLiked="onLiked" :key="movie.id" v-for="movie in movies" :movie="movie" />
+    <SingleMovie @remove="remove" @onFavourite="onFavourite" @onLiked="onLiked" :key="movie.id"
+                 v-for="movie in movies" :movie="movie" />
   </ul>
 </template>
 

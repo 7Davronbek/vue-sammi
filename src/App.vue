@@ -48,17 +48,33 @@ export default {
   },
   methods: {
     newMovie(item) {
-      this.movies.push(item);
+      this.movies.push(item)
     },
-    onLiked(item) {
-      console.log(item)
+    onLiked(id) {
+      this.movies.map(i => {
+        if (i.id === id) {
+          i.liked = !i.liked
+        }
+        return i
+      })
+    },
+    onFavourite(id) {
+      this.movies.map(item => {
+        if (item.id === id) {
+          item.favorite = !item.favorite
+        }
+        return item
+      })
+    },
+    remove(id) {
+      this.movies = this.movies.filter(item => item.id !== id)
     }
   }
 }
 </script>
 
 <template>
-  <HomeView @onLiked="onLiked" @newMovie="newMovie" :movies="movies" />
+  <HomeView @remove="remove" @onFavourite="onFavourite" @onLiked="onLiked" @newMovie="newMovie" :movies="movies" />
 </template>
 
 <style>

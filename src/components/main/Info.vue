@@ -8,6 +8,10 @@ export default {
     favoriteCount: {
       type: Number,
       required: true
+    },
+    likedCount: {
+      type: Number,
+      required: true
     }
   }
 }
@@ -16,6 +20,7 @@ export default {
 <template>
   <h1>All movies: {{ moviesCount }}</h1>
   <h2>Favorite: {{ favoriteCount }}</h2>
+  <h2>Liked: {{ likedCount }}</h2>
 </template>
 
 <style scoped>
