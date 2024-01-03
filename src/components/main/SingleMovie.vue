@@ -11,7 +11,7 @@ export default {
       this.$emit('onLiked', id)
     }
   },
-  emits: ['onLiked', "onFavourite", "remove"]
+  emits: ['onLiked', 'onFavourite', 'remove']
 }
 </script>
 

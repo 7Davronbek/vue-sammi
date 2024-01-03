@@ -17,13 +17,13 @@ export default {
       this.$emit('onLiked', item)
     },
     onFavourite(item) {
-      this.$emit("onFavourite", item)
+      this.$emit('onFavourite', item)
     },
     remove(item) {
       this.$emit('remove', item)
     }
   },
-  emits: ['newMovie', 'onLiked', 'onFavourite', "remove"]
+  emits: ['newMovie', 'onLiked', 'onFavourite', 'remove']
 }
 </script>
 

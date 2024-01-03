@@ -38,7 +38,8 @@ export default {
     <div class="row">
       <div class="col-12">
         <div class="mb-5"></div>
-        <Info :likedCount="movies.filter(m => m.liked).length" :favoriteCount="movies.filter(m => m.favorite).length" :moviesCount="movies.length" />
+        <Info :likedCount="movies.filter(m => m.liked).length" :favoriteCount="movies.filter(m => m.favorite).length"
+              :moviesCount="movies.length" />
         <div class="mb-5"></div>
         <SearchPanel />
         <div class="mb-5"></div>
