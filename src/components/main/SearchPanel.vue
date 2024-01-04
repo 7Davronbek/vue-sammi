@@ -21,7 +21,7 @@ export default {
 </script>
 
 <template>
-  <FormControl @input="changeHandler" v-model="term" placeholder="Find movie"  />
+  <FormControl @input="changeHandler" v-model="term" placeholder="Find movie" />
 </template>
 
 <style scoped>
