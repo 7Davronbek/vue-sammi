@@ -7,6 +7,10 @@ export default {
     movies: {
       type: Array,
       required: true
+    },
+    onUpdateTermHandler: {
+      type: Function,
+      required: true
     }
   },
   methods: {
@@ -28,5 +32,5 @@ export default {
 </script>
 
 <template>
-  <MainVue @remove="remove" @onFavourite="onFavourite" @newMovie="newMovie" @onLiked="onLiked" :movies="movies" />
+  <MainVue :onUpdateTermHandler="onUpdateTermHandler" @remove="remove" @onFavourite="onFavourite" @newMovie="newMovie" @onLiked="onLiked" :movies="movies" />
 </template>

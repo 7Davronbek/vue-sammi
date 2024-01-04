@@ -1,12 +1,13 @@
 <script setup>
-
+// noinspection ES6UnusedImports
+import PrimaryButton from '@/ui-components/PrimaryButton.vue'
 </script>
 
 <template>
   <div class="btn-group">
-    <button class="btn btn-outline-dark">All</button>
-    <button class="btn btn-outline-dark">Popular</button>
-    <button class="btn btn-outline-dark">Most viewed</button>
+    <PrimaryButton class="btn-outline-dark">All</PrimaryButton>
+    <PrimaryButton class="btn-outline-dark">Popular</PrimaryButton>
+    <PrimaryButton class="btn-outline-dark">Most viewed</PrimaryButton>
   </div>
 </template>
 

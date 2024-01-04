@@ -8,15 +8,8 @@ export default {
 
   data() {
     return {
-      movies: [
-        {
-          id: 1,
-          name: 'Lorem',
-          viewers: 123,
-          favorite: true,
-          liked: true
-        }
-      ]
+      movies: [],
+      term: 'aut'
     }
   },
   methods: {
@@ -31,6 +24,7 @@ export default {
         return i
       })
     },
+
     onFavourite(id) {
       this.movies.map(item => {
         if (item.id === id) {
@@ -39,9 +33,22 @@ export default {
         return item
       })
     },
+
     remove(id) {
       this.movies = this.movies.filter(item => item.id !== id)
     },
+
+    onSearchFilter(arr, term) {
+      if (term.length === 0) {
+        return arr
+      }
+      return arr.filter(m => m.name.toLowerCase().indexOf(term) > -1)
+    },
+
+    onUpdateTermHandler(term) {
+      this.term = term
+    },
+
     async fetchMovie() {
       const { data } = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10')
       this.movies = data.map((item) => ({
@@ -60,7 +67,8 @@ export default {
 </script>
 
 <template>
-  <HomeView @remove="remove" @onFavourite="onFavourite" @onLiked="onLiked" @newMovie="newMovie" :movies="movies" />
+  <HomeView :onUpdateTermHandler="onUpdateTermHandler"  @remove="remove" @onFavourite="onFavourite" @onLiked="onLiked" @newMovie="newMovie"
+            :movies="onSearchFilter(movies, term)" />
 </template>
 
 <style>

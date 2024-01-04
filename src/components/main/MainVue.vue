@@ -13,6 +13,10 @@ export default {
     movies: {
       type: Array,
       required: true
+    },
+    onUpdateTermHandler: {
+      type: Function,
+      required: true
     }
   },
   methods: {
@@ -41,7 +45,7 @@ export default {
         <Info :likedCount="movies.filter(m => m.liked).length" :favoriteCount="movies.filter(m => m.favorite).length"
               :moviesCount="movies.length" />
         <div class="mb-5"></div>
-        <SearchPanel />
+        <SearchPanel :onUpdateTermHandler="onUpdateTermHandler" />
         <div class="mb-5"></div>
         <AppFilter />
         <div class="mb-5"></div>

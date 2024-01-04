@@ -1,4 +1,6 @@
 <script>
+
+
 export default {
   data() {
     return {
@@ -31,11 +33,9 @@ export default {
 <template>
   <h4>Add movie</h4>
   <form @submit="addMovie">
-    <input @input="name = $event.target.value" :value="name" type="text" placeholder="Movie name"
-           class="form-control mb-3">
-    <input @input="viewers = $event.target.value" :value="viewers" type="text" placeholder="Viewed"
-           class="form-control mb-3">
-    <button type="submit" class="btn btn-outline-dark">Add</button>
+    <FormControl required v-model="name"  placeholder="Movie name" />
+    <FormControl required v-model="viewers" type="number" placeholder="Viewed" />
+    <PrimaryButton type="submit" class="btn-outline-dark">Add</PrimaryButton>
   </form>
 </template>
 
